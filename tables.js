@@ -63,13 +63,31 @@ var products = [
         "quantity": "60 g"
     },
     {
-        "id": 6,
-        "name": "Christmas Tea",
-        "brand": "Yogi Organic",
+        "id": 7,
+        "name": "Carrot and apple juice",
+        "brand": "Zdravo",
         "info": "",
-        "image": "./image/tea.png",
-        "price": "4.99",
-        "quantity": "60 g"
+        "image": "./image/juicecarrot.png",
+        "price": "11.65",
+        "quantity": "750 ml"
+    },
+    {
+        "id": 8,
+        "name": "Flakes",
+        "brand": "Turtle",
+        "info": "",
+        "image": "./image/flakes.png",
+        "price": "6.74",
+        "quantity": "375 g"
+    },
+    {
+        "id": 9,
+        "name": "Kokosoile",
+        "brand": "Mattison",
+        "info": "",
+        "image": "./image/kokosowomaslo.png",
+        "price": "37.04",
+        "quantity": "500 ml"
     },
 
     /*Шаблон
