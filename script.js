@@ -1,9 +1,9 @@
 var products = [
     {
         "id": 0,
-        "name": "Brazil Nuts",
+        "name": "Бразилски ядки",
         "brand": "Smart Organic",
-        "info": "Have you tried brazil nuts? They are:\n -The food with the highest selenium content\n– Rich in healthy fats\n– Rich in antioxidants\n– Raw\n– Organic\n\nBrazil nuts are nutritional powerhouses, providing healthy fats, antioxidants, vitamins, and minerals. They’re particularly high in selenium, a mineral with potent antioxidant properties. Eating Brazil nuts may reduce inflammation, support brain function, and improve your thyroid function and heart health.\nTo avoid consuming too much selenium, limit your intake to one to three Brazil nuts per day.\nRecommended use: Add Brazil nuts to your breakfast or consume as a snack.\nIngredients: Brazil nuts*.\n*Organic certified ingredient.",
+        "info": "Пробвали ли сте бразилски ядки? Те са:\n -Храната с най-високо съдържание на селен\n– Богата на полезни мазнини\n– Богата на антиоксиданти\n– Сурови\n– Органични\n\nБразилските ядки са хранителни източници, които осигуряват здравословни мазнини, антиоксиданти, витамини и минерали. Те са с особено високо съдържание на селен - минерал с мощни антиоксидантни свойства. Консумацията на бразилски орехи може да намали възпаленията, да подпомогне мозъчната функция и да подобри функцията на щитовидната жлеза и здравето на сърцето.\nЗа да не консумирате твърде много селен, ограничете приема до един до три бразилски ореха на ден.\nПрепоръчителна употреба: Добавете бразилските орехи към закуската си или ги консумирайте като лека закуска.\nСъставки: бразилски орехи*.\nОрганична сертифицирана съставка.",
         "image": "./image/brazilnuts.png",
         "price": "13.67",
         "quantity": "150 g"
@@ -12,7 +12,7 @@ var products = [
         "id": 1,
         "name": "Vegetable Chips",
         "brand": "Snack Day",
-        "info": "BIO Organic vegetable chips with sea salt, made from parsnip, carrot, sweet potatoes, beetroot, palm oil free.\nIngredients:\n62% vegetables in variable proportions (parsnip*, carrot*, sweet potatoes*, beetroot*), 37% sunflower oil*, 1% sea salt - *from organic farming",
+        "info": "BIO Органичен зеленчуков чипс с морска сол от пащърнак, моркови, сладки картофи, цвекло, без палмово масло.\nСъставки:\n62% зеленчуци в различно съотношение (пащърнак*, моркови*, сладки картофи*, цвекло*), 37% слънчогледово олио*, 1% морска сол - *от биологично земеделие",
         "image": "./image/chips.png",
         "price": "7.80",
         "quantity": "120 g"
@@ -21,7 +21,7 @@ var products = [
         "id": 2,
         "name": "Chocolate Balls",
         "brand": "Turtle",
-        "info": "Elevate your breakfast experience with Turtle Choco Balls, the perfect blend of wholesome cereals and real, organic chocolate.\n\nDid you know that our cocoa is sourced from the hot and humid jungles, where the cocoa tree flourishes? The beans from these pods are carefully dried and ground to create the rich cocoa powder that makes our Choco Balls an indulgent morning treat. Start your mornings right with the goodness of Turtle Choco Balls!\n\nIngredients: cereal flour* 69,1% (rice*, corn*, WHEAT*), cane sugar*, couverture MILK chocolate* 4,7% (cane sugar*, MILK powder*, cocoa butter*, cocoa mass*, emulsifier: SOY lecithin*, vanilla extract*), corn syrup*, fat reduced cocoa powder* 2.9%, cocoa powder* 1%, emulsifier: SOY lecithin*, salt. *Certified organic ingredients from EU\non-EU agriculture.",
+        "info": "Повишете нивото на закуската си с Turtle Choco Balls - перфектната комбинация от пълноценни зърнени храни и истински органичен шоколад.\n\nЗнаете ли, че нашето какао се добива от горещите и влажни джунгли, където какаовото дърво процъфтява? Зърната от тези шушулки внимателно се изсушават и смилат, за да се получи богатият какаов прах, който прави нашите шоколадови топчета разкошно сутрешно лакомство. Започнете сутрините си правилно с добротата на Turtle Choco Balls!\n\nСъстав: зърнено брашно* 69,1% (ориз*, царевица*, ПШЕНИЦА*), тръстикова захар*, кувертюрен млечен шоколад* 4,7% (тръстикова захар*, МЛЯКО на прах*, какаово масло*, какаова маса*, емулгатор: СОЕВ лецитин*, екстракт от ванилия*), царевичен сироп*, какао с намалено съдържание на мазнини на прах* 2,9%, какао на прах* 1%, емулгатор: Соев лецитин*, сол. *Сертифицирани органични съставки от селското стопанство в ЕС и извън него.",
         "image": "./image/chocolateballs.png",
         "price": "6.94",
         "quantity": "300 g"
@@ -30,7 +30,7 @@ var products = [
         "id": 3,
         "name": "Mini Choco Chips",
         "brand": "Gullón",
-        "info": "Mini Choco Chips are cookies with chocolate chips in a small and delicious format.\n\nIngredients: Wheat flour , dark chocolate chips (sugar, cocoa mass, cocoa butter, emulsifier ( soy lecithin ), vegetable oil (high oleic sunflower), sugar, glucose and fructose syrup, salt, raising agents (acid carbonate sodium and ammonium hydrogen carbonate), aroma. May contain traces of Nuts and Milk.",
+        "info": "Mini Choco Chips са бисквитки с шоколадов чипс в малък и вкусен формат.\n\nСъставки: Пшенично брашно , тъмен шоколадов чипс (захар, какаова маса, какаово масло, емулгатор ( соев лецитин ), растително масло (слънчогледово с високо съдържание на олеинова киселина), захар, глюкозен и фруктозен сироп, сол, набухватели (натриев карбонат и амониев хидрогенкарбонат), аромат. Може да съдържа следи от ядки и мляко.",
         "image": "./image/chocolatecookie.png",
         "price": "2.25",
         "quantity": "150 g"
@@ -39,7 +39,7 @@ var products = [
         "id": 4,
         "name": "Goji Berries",
         "brand": "Dragon Superfoods",
-        "info": "Dragon Superfoods Goji Berries contain whole dried fruits that are rich in amino acids, vitamins and minerals. The fruits are orange-red in color and have a naturally sweet-sour taste. The antioxidants carotene and zeaxanthin in goji berries protect the retina and improve vision. Dried fruits have a beneficial effect on the kidneys and regenerate cells.\n\nMethod of use:\nAdd the product to smoothies or sprinkle it on desserts, muesli or yogurt.\n\nComposition:\nGoji berry (100%)*.\n*organic certified product.",
+        "info": "Dragon Superfoods Goji Berries съдържа цели сушени плодове, които са богати на аминокиселини, витамини и минерали. Плодовете са оранжево-червени на цвят и имат естествено сладко-кисел вкус. Антиоксидантите каротин и зеаксантин в годжи бери предпазват ретината и подобряват зрението. Сушените плодове имат благоприятен ефект върху бъбреците и регенерират клетките.\n\nНачин на употреба:\nДобавете продукта към смутита или го поръсете върху десерти, мюсли или кисело мляко.\n\nСъстав:\nГоджи бери (100%)*.\n*органичен сертифициран продукт.",
         "image": "./image/goji.jpg",
         "price": "6.99",
         "quantity": "100 g"
@@ -48,7 +48,7 @@ var products = [
         "id": 5,
         "name": "Millet balls",
         "brand": "Biopont",
-        "info": "Organic gluten-free millet snack with peanuts Organic millet balls by Biopont is produced with ingredients from controlled organic farming. An extruded vegan product that can also be consumed by people with gluten intolerance. Healthy and tasty - every bite brings delight!",
+        "info": "Органичен безглутенов снакс от просо с фъстъци Органичните топчета от просо на Biopont са произведени със съставки от контролирано биологично земеделие. Екструдиран вегетариански продукт, който може да се консумира и от хора с непоносимост към глутен. Здравословен и вкусен - всяка хапка носи наслада!",
         "image": "./image/milletballs.png",
         "price": "2.27",
         "quantity": "60 g"
@@ -57,7 +57,7 @@ var products = [
         "id": 6,
         "name": "Christmas Tea",
         "brand": "Yogi Organic",
-        "info": "cocoa shells * 33%, hibiscus * 16%, cinnamon * 15%, licorice *, ginger *, cloves *, cardamom *, black pepper *, star anise *, nutmeg *, orange essential oil *, anise *, roasted chicory *, nutmeg *, *organic farming",
+        "info": "какаови черупки * 33%, хибискус * 16%, канела * 15%, женско биле *, джинджифил *, карамфил *, кардамон *, черен пипер *, звезден анасон *, индийско орехче *, етерично масло от портокал *, анасон *, печена цикория *, индийско орехче *, *органично земеделие",
         "image": "./image/tea.png",
         "price": "4.99",
         "quantity": "60 g"
@@ -66,7 +66,7 @@ var products = [
         "id": 7,
         "name": "Carrot and apple juice",
         "brand": "Zdravo",
-        "info": "Single Item \nJuice in 1 packaging \nVegan product \nNo added water and sugar \nNo artificial preservatives, colors, flavors, or sweeteners",
+        "info": "Единичен артикул \n Сок в 1 опаковка \n Веган продукт \n Без добавена вода и захар \nНе съдържа изкуствени консерванти, оцветители, аромати или подсладители",
         "image": "./image/juicecarrot.png",
         "price": "11.65",
         "quantity": "750 ml"
@@ -75,7 +75,7 @@ var products = [
         "id": 8,
         "name": "Flakes",
         "brand": "Turtle",
-        "info": "Turtle Bran Flakes cereal consists of crunchy flakes made from wheat bran. Each bowl of Bran Flakes helps you start the day right with its high wheat bran fiber content*. Enjoy them chilled with milk or yogurt and some fresh fruit for a delicious nutritious breakfast.",
+        "info": "Зърнените храни Turtle Bran Flakes се състоят от хрупкави люспи, направени от пшенични трици. Всяка купичка Bran Flakes ви помага да започнете деня правилно благодарение на високото съдържание на фибри от пшенични трици*. Насладете им се охладени с мляко или кисело мляко и малко пресни плодове за вкусна питателна закуска.",
         "image": "./image/flakes.png",
         "price": "6.74",
         "quantity": "375 g"
@@ -84,7 +84,7 @@ var products = [
         "id": 9,
         "name": "Kokosolie",
         "brand": "Mattison",
-        "info": " Pure coconut oil \nCold-pressed, unrefined, organic |Versatile in use: baking, roasting, frying and in smoothies \nAlso for skin care",
+        "info": " Чисто кокосово масло \nС студено пресовано, нерафинирано, органично |Всестранна употреба: печене, пържене, пържене и в смутита \nТака също и за грижа за кожата",
         "image": "./image/kokosowomaslo.png",
         "price": "37.04",
         "quantity": "500 ml"
