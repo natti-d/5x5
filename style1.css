@@ -4,9 +4,7 @@
     padding:0px;
     box-sizing: border-box;
 }
-ul{
-    list-style: none;
-}
+
 a{
     text-decoration: none;
 }
@@ -18,22 +16,8 @@ body{
 .menu{
     display: flex;
 }
-.menu li a{
-    padding: 3px 10px;
-    margin: 0px 15px;
-    color: #3b3b3b;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: all ease 0.3s;
 
 
-}
-.logo{
-    font-size:1.4rem ;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color:#202020;
-}
 .right-nav{
     display: grid;
     grid-template-columns: auto auto;
