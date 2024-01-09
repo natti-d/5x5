@@ -145,8 +145,8 @@ function changeInfo() {
 
 function activating(btn) {
     let a = document.getElementById(btn)
-    a.style.color = "#99D19C";
-    a.style.borderBlockColor = "#99D19C";
+    a.style.color = "#72CB7D";
+    a.style.borderBlockColor = "#1E4847";
     a.classList.remove("btn-success");
     a.classList.add("btn-outline-success");
 
