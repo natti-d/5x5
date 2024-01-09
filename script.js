@@ -144,19 +144,17 @@ function changeInfo() {
 }
 
 function activating(btn) {
-    let a = document.getElementById(btn)
-    a.style.color = "#99D19C";
-    a.style.borderBlockColor = "#99D19C";
-    a.classList.remove("btn-success");
-    a.classList.add("btn-outline-success");
+    let a = document.getElementById(btn);
+    a.style.color = '#1E4847';
+    a.style.border = 'solid 2px #1E4847';
+    a.style.backgroundColor = '#72CB7D';
 
     btn += 'Nav';
 
     let b = document.getElementById(btn)
-    b.style.color = "#565656";
-    b.style.borderBlockColor = "#565656";
-    b.classList.remove("btn-success");
-    b.classList.add("btn-outline-success");
+    b.style.color = '#72CB7D';
+    b.style.border = 'solid 2px #72CB7D';
+    b.style.backgroundColor = '#1E4847';
 
     let h1 = document.getElementById('page-name');
     h1.innerText = String(a.innerText);
@@ -165,18 +163,15 @@ function activating(btn) {
 
 function deactivating(btn) {
     let a = document.getElementById(btn);
-    a.style.color = '#FFFFFF';
-    a.style.borderBlockColor = null;
-    a.classList.add("btn-success");
-    a.classList.remove("btn-outline-success");
+    a.style.color = '#1E4847';
+    a.style.border = 'none';
+    a.style.backgroundColor = '#72CB7D';
 
     btn += 'Nav';
     let b = document.getElementById(btn);
-    b.style.removeProperty("color");
-    b.style.removeProperty("border-color");
-    b.style.borderBlockColor = null;
-    b.classList.add("btn-success");
-    b.classList.remove("btn-outline-success");
+    b.style.color = '#1E4847';
+    b.style.border = 'none';
+    b.style.backgroundColor = '#72CB7D';
 
 }
 
