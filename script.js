@@ -240,16 +240,27 @@ function Load() {
 
         let object_div3 = document.createElement("div");
         object_div3.classList.add("card-body");
-        object_div3.style.backgroundColor = "#1E4847";
+        object_div3.style.backgroundColor = "#72CB7D";
         object_div2.appendChild(object_div3);
 
-        let h4 = document.createElement("h4");
-        h4.classList.add("card-title", "text-center", "break-word");
-        h4.style.color = "#FFFFFF";
-        h4.innerText = "";
-        object_div3.appendChild(h4);
+        let object_div4 = document.createElement("div");
+        object_div4.classList.add("card-title", "d-flex", "justify-content-between", "align-items-middle", "m-0");
+        object_div3.appendChild(object_div4);
 
-        h4.innerText = products[i].name;
+        let product = document.createElement("h4");
+        product.classList.add("text-center", "break-word", "m-0");
+        product.style.color = "#1E4847";
+        product.innerText = "";
+
+        let price = document.createElement("h4");
+        price.classList.add("text-center", "break-word", "m-0");
+        price.style.color = "#1E4847";
+        price.innerText = "";
+        object_div4.appendChild(product);
+        object_div4.appendChild(price);
+
+        product.innerText = products[i].name;
+        price.innerText = products[i].price.concat(" лв.");
 
         object_div1.addEventListener("click", function () {
             object_id = i;
@@ -263,9 +274,14 @@ function openOffCanva() {
     let info_object = document.getElementById("info-object");
     let name_of_offcanva = document.getElementById("name-of-offcanva");
     let image_of_offcanva = document.getElementById("image-of-offcanva");
-    let location_object = document.getElementById("location-object");
+    let price_btn = document.getElementById("price-btn");
+    let quantity_btn = document.getElementById("quantity-btn");
+    image_of_offcanva.style.height = '500px';
 
     name_of_offcanva.innerText = (products[object_id].name).concat(" " + products[object_id].brand);
     info_object.innerText = products[object_id].info;
     image_of_offcanva.src = products[object_id].image;
+    price_btn.innerText = products[object_id].price.concat(" лв.");
+    quantity_btn.innerText = products[object_id].quantity;
+
 }
