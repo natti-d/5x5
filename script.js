@@ -108,45 +108,21 @@ var happened = 1;
 var url;
 var object_id;
 
-function changeObekti() {
-    activating('obekti');
-    deactivating('vhod');
-    deactivating('registraciq');
-    deactivating('karta');
+function changeMagazin() {
+    activating('magazin');
+    deactivating('cart');
     deactivating('about');
 }
 
-function changeKarta() {
-    activating('karta');
-    deactivating('obekti');
-    deactivating('registraciq');
-    deactivating('vhod');
-    deactivating('about');
-
-}
-
-function changeRegistraciq() {
-    activating('registraciq');
-    deactivating('obekti');
-    deactivating('vhod');
-    deactivating('karta');
-    deactivating('about');
-
-}
-
-function changeVhod() {
-    activating('vhod');
-    deactivating('obekti');
-    deactivating('registraciq');
-    deactivating('karta');
+function changeCart() {
+    activating('cart');
+    deactivating('magazin');
     deactivating('about');
 }
 function changeZanas() {
     activating('about');
-    deactivating('vhod');
-    deactivating('obekti');
-    deactivating('registraciq');
-    deactivating('karta');
+    deactivating('magazin');
+    deactivating('cart');
 }
 
 function changeInfo() {
