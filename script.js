@@ -210,7 +210,7 @@ function Load() {
 
     for (let i = 0; i < lenght; i++) {
         let object_div1 = document.createElement("div");
-        object_div1.classList.add("col-md-4", "col-12");
+        object_div1.classList.add("col-md-3", "col-12");
         obj_conatiner.appendChild(object_div1);
 
         let object_div2 = document.createElement("div");
@@ -235,6 +235,7 @@ function Load() {
         let object_image = document.createElement("img");
         object_image.classList.add("card-img-top", "img-fluid");
         object_image.src = products[i].image;
+        object_image.style.height = '250px';
         object_div2.appendChild(object_image);
 
         let object_div3 = document.createElement("div");

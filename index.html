@@ -18,19 +18,16 @@
     <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
         style="background-color: #1E4847" id="top-navigation">
         <div>
-            <img src="image/logo.png" alt="logo" style="height: 160px;" class="my-0">
+            <img src="image/logo.png" alt="logo" style="height: 120px;" class="my-0">
         </div>
         <div class="pe-md-5 m-3 d-flex align-items-center">
             <div class="d-lg-inline d-none">
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="obekti"
-                    onclick="changeObekti()">Обекти</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="karta"
-                    onclick="changeKarta()">Карта</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="registraciq"
-                    onclick="changeRegistraciq()">Регистрация</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="about" onclick="changeZanas()">За
-                    нас</button>
+                <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="obektiNav"
+                onclick="changeObekti()" data-bs-dismiss="offcanvas" aria-label="Close">Магазин</button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="kartaNav"
+                onclick="changeKarta()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="aboutNav"
+                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">*количка*</button>
             </div>
             <button class="btn btn-success mx-2 btn-lg" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -43,7 +40,7 @@
     <div class="offcanvas offcanvas-end overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header p-0">
-            <img class="d-none d-md-block img-fluid" src="image/logo_side.jpg" alt="logo"
+            <img class="d-none d-md-block img-fluid" src="image/logo.png" alt="logo"
                 class="my-0 overflow-hidden p-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                 aria-controls="offcanvasWithBothOptions">
         </div>
@@ -51,15 +48,11 @@
             <button type="button" class="btn btn-lg btn-close d-md-none" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="obektiNav"
-                onclick="changeObekti()" data-bs-dismiss="offcanvas" aria-label="Close">Обекти</button>
+                onclick="changeObekti()" data-bs-dismiss="offcanvas" aria-label="Close">Магазин</button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="kartaNav"
-                onclick="changeKarta()" data-bs-dismiss="offcanvas" aria-label="Close">Карта</button>
-            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="registraciqNav"
-                onclick="changeRegistraciq()" data-bs-dismiss="offcanvas" aria-label="Close">Регистрация</button>
-            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="vhodNav"
-                onclick="changeVhod()" data-bs-dismiss="offcanvas" aria-label="Close">Вход</button>
+                onclick="changeKarta()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="aboutNav"
-                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За нас</button>
+                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">*количка*</button>
         </div>
     </div>
     <div class="vw-100 d-lg-none d-block mt-3 py-2" style="background-color: #1E4847; color: #FFF;">
@@ -67,8 +60,9 @@
     </div>
 
     <!--ОБЕКТИ-->
-    <div class="row m-4 d-flex position-relative overflow-auto pb-5" id="objects-div" onclick="openOffCanva()" style="max-height: 60vh;"
-        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+    <div class="row m-4 d-flex position-relative overflow-auto pb-5" id="objects-div" onclick="openOffCanva()"
+        style="max-height: 80vh;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+        aria-controls="offcanvasBottom">
     </div>
 
     <!--OFFCANVA INFO-->
@@ -106,7 +100,8 @@
                     </div>
 
                     <div class="d-block justify-content-around w-100 w-md-auto mx-md-3 mb-md-3" id="info-conatiner">
-                        <div class="accordion" id="accordionPanelsStayOpenExample" style="border: solid 2px #fff; border-radius: 2%;">
+                        <div class="accordion" id="accordionPanelsStayOpenExample"
+                            style="border: solid 2px #fff; border-radius: 2%;">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
@@ -128,80 +123,6 @@
             </form>
         </div>
     </div>
-
-    <!--FOOTER-->
-    <div class="vh-25 d-block d-md-none"></div>
-    <div style="height: 20vh;"></div>
-    <footer class="vw-100 bg overflow-hidden position-fixed start-0 end-0 bottom-0"
-        style="background-color: #1E4847; height: 20vh;">
-        <div class="d-none d-lg-block">
-            <div class="mountain position-absolute bottom-0 z-1"
-                style="border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 180px solid #7AC1E4;">
-                <div class="mountain-top position-absolute z-2"
-                    style="right: -65px; border-left: 65px solid transparent; border-right: 65px solid transparent; border-bottom: 77px solid #CEEAF6;">
-                    <div class="mountain-cap-1 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -55px;">
-                    </div>
-                    <div class="mountain-cap-2 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -25px;">
-                    </div>
-                    <div class="mountain-cap-3 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: 5px;">
-                    </div>
-                </div>
-            </div>
-            <div class="mountain-two position-absolute bottom-0 z-0"
-                style="border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 180px solid #7AC1E4; left: 80px; bottom: -20px; opacity: .3;">
-                <div class="mountain-top position-absolute z-2"
-                    style="right: -65px; border-left: 65px solid transparent; border-right: 65px solid transparent; border-bottom: 77px solid #CEEAF6;">
-                    <div class="mountain-cap-1 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -55px;">
-                    </div>
-                    <div class="mountain-cap-2 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -25px;">
-                    </div>
-                    <div class="mountain-cap-3 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: 5px;">
-                    </div>
-                </div>
-            </div>
-            <div class="mountain-three position-absolute bottom-0 z-0"
-                style="border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 180px solid #7AC1E4; left: -60px; bottom: -10px; opacity: .5;">
-                <div class="mountain-top position-absolute z-2"
-                    style="right: -65px; border-left: 65px solid transparent; border-right: 65px solid transparent; border-bottom: 77px solid #CEEAF6;">
-                    <div class="mountain-cap-1 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -55px;">
-                    </div>
-                    <div class="mountain-cap-2 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -25px;">
-                    </div>
-                    <div class="mountain-cap-3 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: 5px;">
-                    </div>
-                </div>
-            </div>
-
-            <div class="cloud position-absolute"
-                style="bottom: 100px; -webkit-animation: cloud 50s infinite linear; animation: cloud 50s infinite linear; width: 70px; height: 30px; background: #FFF; -webkit-border-radius: 100px / 50px; border-radius: 100px / 50px;">
-            </div>
-
-            <div class="d-none d-md-block mountain position-absolute bottom-0 end-0 z-1"
-                style="border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 180px solid #7AC1E4;">
-                <div class="mountain-top position-absolute z-2"
-                    style="right: -65px; border-left: 65px solid transparent; border-right: 65px solid transparent; border-bottom: 77px solid #CEEAF6;">
-                    <div class="mountain-cap-1 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -55px;">
-                    </div>
-                    <div class="mountain-cap-2 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: -25px;">
-                    </div>
-                    <div class="mountain-cap-3 position-absolute"
-                        style="top: 70px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-top: 25px solid #CEEAF6; left: 5px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>
