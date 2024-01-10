@@ -102,3 +102,46 @@ var products = [
     }
      */
 ];
+
+var brands = [
+    {
+        "id": 0,
+        "brand": "Smart Organic",
+        "icon": "./image1/brands/smart-organic.png"
+    },
+    {
+        "id": 1,
+        "brand": "Snack Day",
+        "icon": "./image1/brands/snack-day.png"
+    },
+    {
+        "id": 2,
+        "brand": "Turtle",
+        "icon": "./image1/brands/turtle.png"
+    },
+    {
+        "id": 3,
+        "brand": "Dragon Superfoods",
+        "icon": "./image1/brands/dragon-superfoods.png"
+    },
+    {
+        "id": 4,
+        "brand": "Bio point",
+        "icon": "./image1/brands/bio-point.png"
+    },
+    {
+        "id": 5,
+        "brand": "Jogi Organic",
+        "icon": "./image1/brands/jogi-organic.png"
+    },
+    {
+        "id": 6,
+        "brand": "Zdravo",
+        "icon": "./image1/brands/zdravo.png"
+    },
+    {
+        "id": 7,
+        "brand": "Mattison",
+        "icon": "./image1/brands/mattison.png"
+    }
+];
