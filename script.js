@@ -375,12 +375,16 @@ function openOffCanva() {
     let price_btn = document.getElementById("price-btn");
     let quantity_btn = document.getElementById("quantity-btn");
     image_of_offcanva.style.height = '500px';
+    let purchase = document.getElementById("purchase_btn");
 
     name_of_offcanva.innerText = (products[object_id].name).concat(" " + products[object_id].brand);
     info_object.innerText = products[object_id].info;
     image_of_offcanva.src = products[object_id].image;
     price_btn.innerText = products[object_id].price.concat(" лв.");
     quantity_btn.innerText = products[object_id].quantity;
+    purchase.setAttribute("data-price", products[object_id].price);
+    purchase.classList.add("addToCart");
+
 
 }
 
