@@ -155,6 +155,17 @@ function changeMagazin() {
     activating('magazin');
     deactivating('cart');
     deactivating('about');
+
+    var shop_div = document.getElementById('shop-div');
+    shop_div.classList.remove('d-none');
+
+    var about_div = document.getElementById('about-div');
+    about_div.classList.add('d-none');
+
+    var home_div = document.getElementById('home-div');
+    home_div.classList.add('d-none');
+
+    load();
 }
 
 function changeCart() {
@@ -162,10 +173,25 @@ function changeCart() {
     deactivating('magazin');
     deactivating('about');
 }
+
+var isloadedabout = false;
 function changeZanas() {
     activating('about');
     deactivating('magazin');
     deactivating('cart');
+
+    var shop_div = document.getElementById('shop-div');
+    shop_div.classList.add('d-none');
+
+    var about_div = document.getElementById('about-div');
+    about_div.classList.add('d-none');
+
+    var home_div = document.getElementById('home-div');
+    home_div.classList.remove('d-none');
+
+    if (!isloadedabout) {
+        loadAbout();
+    }
 }
 
 function changeInfo() {
@@ -198,10 +224,6 @@ function activating(btn) {
     b.style.color = '#72CB7D';
     b.style.border = 'solid 2px #72CB7D';
     b.style.backgroundColor = '#1E4847';
-
-    let h1 = document.getElementById('page-name');
-    h1.innerText = String(a.innerText);
-
 }
 
 function deactivating(btn) {
@@ -219,11 +241,72 @@ function deactivating(btn) {
 }
 
 let lenght = products.length;
-function load(brand) {
+var brand = null;
+function load() {
     let obj_conatiner = document.getElementById('objects-div');
 
     for (let i = 0; i < lenght; i++) {
-        if (products[0].brand == brand || brand == null) {
+        if (products[i].brand == brand) {
+            console.log(products[i].brand == brand);
+            let object_div1 = document.createElement("div");
+            object_div1.classList.add("col-md-3", "col-12");
+            obj_conatiner.appendChild(object_div1);
+
+            let object_div2 = document.createElement("div");
+            object_div2.classList.add("card");
+            object_div2.onmouseover = function () {
+                object_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                object_div2.style.borderStyle = "hidden";
+                object_div2.style.transitionDuration = "0.75s";
+            }
+            object_div2.onmouseleave = function () {
+                object_div2.style.boxShadow = "none";
+                object_div2.borderStyle = "solid";
+                object_div2.transitionDuration = "0.75s";
+            }
+            object_div1.appendChild(object_div2);
+
+            if (i == lenght - 1) {
+                object_div1.classList.add("pb-md-0", "pb-5")
+                object_div2.classList.add("mb-md-0", "mb-3");
+            }
+
+            let object_image = document.createElement("img");
+            object_image.classList.add("card-img-top", "img-fluid");
+            object_image.src = products[i].image;
+            object_image.style.height = '250px';
+            object_div2.appendChild(object_image);
+
+            let object_div3 = document.createElement("div");
+            object_div3.classList.add("card-body");
+            object_div3.style.backgroundColor = "#72CB7D";
+            object_div2.appendChild(object_div3);
+
+            let object_div4 = document.createElement("div");
+            object_div4.classList.add("card-title", "d-flex", "justify-content-between", "align-items-middle", "m-0");
+            object_div3.appendChild(object_div4);
+
+            let product = document.createElement("h4");
+            product.classList.add("text-center", "break-word", "m-0");
+            product.style.color = "#1E4847";
+            product.innerText = "";
+
+            let price = document.createElement("h4");
+            price.classList.add("text-center", "break-word", "m-0");
+            price.style.color = "#1E4847";
+            price.innerText = "";
+            object_div4.appendChild(product);
+            object_div4.appendChild(price);
+
+            product.innerText = products[i].name;
+            price.innerText = products[i].price.concat(" лв.");
+
+            object_div1.addEventListener("click", function () {
+                object_id = i;
+                openOffCanva();
+            });
+        }
+        else if (brand == null) {
             let object_div1 = document.createElement("div");
             object_div1.classList.add("col-md-3", "col-12");
             obj_conatiner.appendChild(object_div1);
@@ -302,6 +385,7 @@ function openOffCanva() {
 }
 
 function loadAbout() {
+    isloadedabout = true;
     let category_cont = document.getElementById('category-cont');
     for (let i = 0; i < brands.length; i++) {
         let category_box = document.createElement('a');
@@ -319,8 +403,8 @@ function loadAbout() {
         category_box.appendChild(span);
 
         category_box.addEventListener("click", function () {
-            load(brands[i].brand);
-            //ne prehvyrlq m/u failovete vse oshte
+            brand = brands[i].brand;
+            changeMagazin();
         });
 
 
