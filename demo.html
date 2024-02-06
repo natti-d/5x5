@@ -1,25 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5x5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</head>
 
-    <h1>The fieldset element</h1>
+<body class="m-0 overflow-hidden" style="background-color: #FAF0FF; min-height: 100vh;" onload="Load()">
 
-    <form action="/action_page.php">
-        <fieldset>
-            <legend>Personalia:</legend>
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br><br>
-            <label for="birthday">Birthday:</label>
-            <input type="date" id="birthday" name="birthday"><br><br>
-            <input type="submit" value="Submit">
-        </fieldset>
-    </form>
+    <!--HEADER-->
+    <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
+        style="background-color: #B17ECE" id="top-navigation">
+        <div>
+            <img src="image/logo.png" alt="logo" style="height: 120px;" class="my-0">
+        </div>
+        <div class="pe-md-5 m-3 d-flex align-items-center">
+            <div class="d-lg-inline d-none">
+                <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                    style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="magazin"
+                    onclick="changeMagazin()" data-bs-dismiss="offcanvas" aria-label="Close">Магазин</button>
+                <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                    style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="about"
+                    onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
+                <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                    style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cart"
+                    onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    <i class="bi bi-cart"></i>
+                </button>
 
+            </div>
+            <button class="btn btn-success mx-2 btn-lg" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                style="background-color: #72CB7D; color: #1E4847; border: none;">
+                <i class="bi bi-list-ul"></i>
+            </button>
+        </div>
+    </header>
+
+    <!--SIDE MENU-->
+    <div class="offcanvas offcanvas-end overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #ddffe1;">
+        <div class="offcanvas-header d-flex justify-content-center p-0" style="background-color: #B17ECE;">
+            <img class="d-none d-md-block img-fluid" src="image/logo.png" alt="logo" class="my-0 overflow-hidden p-0"
+                style="width:max-content;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                aria-controls="offcanvasWithBothOptions">
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <button type="button" class="btn btn-lg btn-close d-md-none" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="magazinNav"
+                onclick="changeMagazin()" data-bs-dismiss="offcanvas" aria-label="Close">Магазин</button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="aboutNav"
+                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word"
+                style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cartNav"
+                onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="bi bi-cart"></i>
+            </button>
+        </div>
+    </div>
+    <div class="vw-100 d-lg-none d-block mt-3 py-2" style="background-color: #1E4847; color: #FFF;">
+        <h1 class="break-word text-center" id="page-name">Име на страница</h1>
+    </div>
+
+    <!--ОБЕКТИ-->
+    <div class="row m-4 d-flex position-relative overflow-auto pb-5" id="objects-div" onclick="openOffCanva()"
+        style="max-height: 80vh;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+        aria-controls="offcanvasBottom">
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Количка</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-4">
+                        <h2>Shopping Cart</h2>
+                        <ul id="cart" class="list-group">
+                            <!-- Cart items will be displayed here -->
+                        </ul>
+                        <p>Total: $<span id="total">0.00</span></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--OFFCANVA INFO-->
+    <div class="vh-100 offcanvas offcanvas-bottom text-center d-block" tabindex="-1" id="offcanvasBottom"
+        aria-labelledby="offcanvasBottomLabel" style="background-color: #CEEAF6; overflow-y: scroll;">
+        <div class="d-flex flex-column m-3">
+            <div class="text-end">
+                <button type="button" class="btn-close p-3" data-bs-dismiss="offcanvas" aria-label="Close">
+                </button>
+            </div>
+            <form action="" class="text-start w-100">
+                <fieldset class="p-2 w-100 d-md-flex d-block position-relative" style="border: solid 2px #1E4847;">
+                    <legend class="fs-1 fw-bold float-none px-3" style="color: #1E4847;" id="name-of-offcanva">
+                    </legend>
+                    <div class="col-md-6 mx-2">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="p-3">
+                                <img class="img-fluid" src="" id="image-of-offcanva" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-block justify-content-around w-100 w-md-auto mx-md-3 mb-md-3" id="info-conatiner">
+                        <div class="accordion" id="accordionPanelsStayOpenExample"
+                            style="border: solid 2px #fff; border-radius: 2%;">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne"
+                                        style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
+                                        Информация
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                    style="background-color: #D4ECDD;">
+                                    <div class="accordion-body fs-6" id="info-object">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex col-10 justify-content-around w-100">
+                            <button class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';"
+                                data-price="0" id="purchase_btn">
+                                Purchase
+                            </button>
+                            <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                id="price-btn"
+                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
+                            </span>
+                            <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                id="quantity-btn"
+                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
+                            </span>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script>
+        let btn = document.getElementById('purchase_btn');
+        btn.addEventListener('click', function () {
+            const addToCartButtons = document.querySelectorAll('.addToCart');
+            const cartList = document.getElementById('cart');
+            const totalSpan = document.getElementById('total');
+            let cart = [];
+            console.log(1);
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+
+                    const price = parseFloat(this.getAttribute('data-price'));
+
+                    cart.push({price });
+                    updateCart();
+                    console.log(2);
+                });
+            });
+
+            function updateCart() {
+                cartList.innerHTML = '';
+                let total = 0;
+
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                    cartList.appendChild(listItem);
+
+                    total += item.price;
+                    console.log(3);
+                });
+
+                totalSpan.textContent = total.toFixed(2);
+            }
+        });
+    </script>
 </body>
 
 </html>
