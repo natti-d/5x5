@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Product 1</h5>
                         <p class="card-text">$10.00</p>
-                        <button class="btn btn-primary addToCart" data-name="Product 1" data-price="10.00">Add to
+                        <button class="btn btn-primary addToCart" data-name="Product 1" data-price="20.00">Add to
                             Cart</button>
                     </div>
                 </div>
@@ -41,11 +41,13 @@
         <p>Total: $<span id="total">0.00</span></p>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        let btn = document.getElementById()
+        document.addEventListener('click', function () {
             const addToCartButtons = document.querySelectorAll('.addToCart');
             const cartList = document.getElementById('cart');
             const totalSpan = document.getElementById('total');
             let cart = [];
+            console.log(1);
 
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function () {
@@ -54,6 +56,7 @@
 
                     cart.push({ name, price });
                     updateCart();
+                    console.log(2);
                 });
             });
 
@@ -71,6 +74,7 @@
                 });
 
                 totalSpan.textContent = total.toFixed(2);
+                console.log(3);
             }
         });
     </script>
