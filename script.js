@@ -103,6 +103,49 @@ var products = [
      */
 ];
 
+var brands = [
+    {
+        "id": 0,
+        "brand": "Smart Organic",
+        "icon": "./image1/brands/smart-organic.png"
+    },
+    {
+        "id": 1,
+        "brand": "Snack Day",
+        "icon": "./image1/brands/snack-day.png"
+    },
+    {
+        "id": 2,
+        "brand": "Turtle",
+        "icon": "./image1/brands/turtle.png"
+    },
+    {
+        "id": 3,
+        "brand": "Dragon Superfoods",
+        "icon": "./image1/brands/dragon-superfoods.png"
+    },
+    {
+        "id": 4,
+        "brand": "Bio point",
+        "icon": "./image1/brands/bio-point.png"
+    },
+    {
+        "id": 5,
+        "brand": "Jogi Organic",
+        "icon": "./image1/brands/jogi-organic.png"
+    },
+    {
+        "id": 6,
+        "brand": "Zdravo",
+        "icon": "./image1/brands/zdravo.png"
+    },
+    {
+        "id": 7,
+        "brand": "Mattison",
+        "icon": "./image1/brands/mattison.png"
+    }
+];
+
 var bg_lang = true;
 var happened = 1;
 var url;
@@ -176,72 +219,73 @@ function deactivating(btn) {
 }
 
 let lenght = products.length;
-function Load() {
+function load(brand) {
     let obj_conatiner = document.getElementById('objects-div');
 
     for (let i = 0; i < lenght; i++) {
-        let object_div1 = document.createElement("div");
-        object_div1.classList.add("col-md-3", "col-12");
-        obj_conatiner.appendChild(object_div1);
+        if (products[0].brand == brand || brand == null) {
+            let object_div1 = document.createElement("div");
+            object_div1.classList.add("col-md-3", "col-12");
+            obj_conatiner.appendChild(object_div1);
 
-        let object_div2 = document.createElement("div");
-        object_div2.classList.add("card");
-        object_div2.onmouseover = function () {
-            object_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
-            object_div2.style.borderStyle = "hidden";
-            object_div2.style.transitionDuration = "0.75s";
+            let object_div2 = document.createElement("div");
+            object_div2.classList.add("card");
+            object_div2.onmouseover = function () {
+                object_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                object_div2.style.borderStyle = "hidden";
+                object_div2.style.transitionDuration = "0.75s";
+            }
+            object_div2.onmouseleave = function () {
+                object_div2.style.boxShadow = "none";
+                object_div2.borderStyle = "solid";
+                object_div2.transitionDuration = "0.75s";
+            }
+            object_div1.appendChild(object_div2);
+
+            if (i == lenght - 1) {
+                object_div1.classList.add("pb-md-0", "pb-5")
+                object_div2.classList.add("mb-md-0", "mb-3");
+            }
+
+            let object_image = document.createElement("img");
+            object_image.classList.add("card-img-top", "img-fluid");
+            object_image.src = products[i].image;
+            object_image.style.height = '250px';
+            object_div2.appendChild(object_image);
+
+            let object_div3 = document.createElement("div");
+            object_div3.classList.add("card-body");
+            object_div3.style.backgroundColor = "#72CB7D";
+            object_div2.appendChild(object_div3);
+
+            let object_div4 = document.createElement("div");
+            object_div4.classList.add("card-title", "d-flex", "justify-content-between", "align-items-middle", "m-0");
+            object_div3.appendChild(object_div4);
+
+            let product = document.createElement("h4");
+            product.classList.add("text-center", "break-word", "m-0");
+            product.style.color = "#1E4847";
+            product.innerText = "";
+
+            let price = document.createElement("h4");
+            price.classList.add("text-center", "break-word", "m-0");
+            price.style.color = "#1E4847";
+            price.innerText = "";
+            object_div4.appendChild(product);
+            object_div4.appendChild(price);
+
+            product.innerText = products[i].name;
+            price.innerText = products[i].price.concat(" лв.");
+
+            object_div1.addEventListener("click", function () {
+                object_id = i;
+                openOffCanva();
+            });
         }
-        object_div2.onmouseleave = function () {
-            object_div2.style.boxShadow = "none";
-            object_div2.borderStyle = "solid";
-            object_div2.transitionDuration = "0.75s";
-        }
-        object_div1.appendChild(object_div2);
-
-        if (i == lenght - 1) {
-            object_div1.classList.add("pb-md-0", "pb-5")
-            object_div2.classList.add("mb-md-0", "mb-3");
-        }
-
-        let object_image = document.createElement("img");
-        object_image.classList.add("card-img-top", "img-fluid");
-        object_image.src = products[i].image;
-        object_image.style.height = '250px';
-        object_div2.appendChild(object_image);
-
-        let object_div3 = document.createElement("div");
-        object_div3.classList.add("card-body");
-        object_div3.style.backgroundColor = "#72CB7D";
-        object_div2.appendChild(object_div3);
-
-        let object_div4 = document.createElement("div");
-        object_div4.classList.add("card-title", "d-flex", "justify-content-between", "align-items-middle", "m-0");
-        object_div3.appendChild(object_div4);
-
-        let product = document.createElement("h4");
-        product.classList.add("text-center", "break-word", "m-0");
-        product.style.color = "#1E4847";
-        product.innerText = "";
-
-        let price = document.createElement("h4");
-        price.classList.add("text-center", "break-word", "m-0");
-        price.style.color = "#1E4847";
-        price.innerText = "";
-        object_div4.appendChild(product);
-        object_div4.appendChild(price);
-
-        product.innerText = products[i].name;
-        price.innerText = products[i].price.concat(" лв.");
-
-        object_div1.addEventListener("click", function () {
-            object_id = i;
-            openOffCanva();
-        });
     }
 }
-var photoIndex;
+
 function openOffCanva() {
-    photoIndex = 0;
     let info_object = document.getElementById("info-object");
     let name_of_offcanva = document.getElementById("name-of-offcanva");
     let image_of_offcanva = document.getElementById("image-of-offcanva");
@@ -259,4 +303,30 @@ function openOffCanva() {
     purchase.classList.add("addToCart");
 
 
+}
+
+function loadAbout() {
+    let category_cont = document.getElementById('category-cont');
+    for (let i = 0; i < brands.length; i++) {
+        let category_box = document.createElement('a');
+        category_box.classList.add('category-box');
+        category_cont.appendChild(category_box);
+
+
+        let img = document.createElement('img');
+        img.src = brands[i].icon;
+
+        let span = document.createElement('span');
+        span.innerHTML = brands[i].brand;
+
+        category_box.appendChild(img);
+        category_box.appendChild(span);
+
+        category_box.addEventListener("click", function () {
+            load(brands[i].brand);
+            //ne prehvyrlq m/u failovete vse oshte
+        });
+
+
+    }
 }
