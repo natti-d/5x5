@@ -12,7 +12,7 @@
     <script src="script.js"></script>
 </head>
 
-<body class="m-0 overflow-hidden" style="background-color: #FAF0FF; min-height: 100vh;" onload="Load()">
+<body class="m-0 overflow-hidden" style="background-color: #FAF0FF; min-height: 100vh;" onload="load()">
 
     <!--HEADER-->
     <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
@@ -172,21 +172,16 @@
     <script>
         let btn = document.getElementById('purchase_btn');
         btn.addEventListener('click', function () {
-            const addToCartButtons = document.querySelectorAll('.addToCart');
+
             const cartList = document.getElementById('cart');
             const totalSpan = document.getElementById('total');
             let cart = [];
             console.log(1);
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function () {
+            const price = parseFloat(this.getAttribute('data-price'));
 
-                    const price = parseFloat(this.getAttribute('data-price'));
-
-                    cart.push({price });
-                    updateCart();
-                    console.log(2);
-                });
-            });
+            cart.push({ price });
+            updateCart();
+            console.log(3);
 
             function updateCart() {
                 cartList.innerHTML = '';
@@ -199,7 +194,7 @@
                     cartList.appendChild(listItem);
 
                     total += item.price;
-                    console.log(3);
+                    console.log(2);
                 });
 
                 totalSpan.textContent = total.toFixed(2);
