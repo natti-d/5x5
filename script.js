@@ -242,6 +242,7 @@ function deactivating(btn) {
 
 let lenght = products.length;
 var brand = null;
+let cart = [];
 function load() {
     let obj_conatiner = document.getElementById('objects-div');
 
@@ -365,7 +366,21 @@ function load() {
                 openOffCanva();
             });
         }
+
     }
+    let purchase = document.getElementById("purchase_btn");
+    purchase.addEventListener('click', function (event) {
+
+        event.preventDefault();
+
+        console.log(1);
+        const name = purchase.getAttribute('item-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        console.log(name);
+        cart.push({ name, price });
+        updateCart();
+        console.log(3);
+    });
 }
 
 function openOffCanva() {
@@ -385,6 +400,8 @@ function openOffCanva() {
     purchase.setAttribute("item-name", products[object_id].name);
     purchase.setAttribute("data-price", products[object_id].price);
     purchase.classList.add("addToCart");
+
+
 
 
 }
@@ -414,4 +431,24 @@ function loadAbout() {
 
 
     }
+}
+
+function updateCart() {
+    const cartList = document.getElementById('total');
+    const totalSpan = document.getElementById('cart');
+    cartList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item';
+        listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
+        cartList.appendChild(listItem);
+
+        total += item.price;
+        console.log(2);
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+    //cartList.textContent = total.toFixed(2);
 }

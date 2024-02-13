@@ -207,43 +207,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        let btn = document.getElementById('purchase_btn');
-        let cart = [];
-        btn.addEventListener('click', function () {
-
-            event.preventDefault();
-
-            const cartList = document.getElementById('total');
-            const totalSpan = document.getElementById('cart');
-
-            console.log(1);
-            const name = btn.getAttribute('item-name');
-            const price = parseFloat(this.getAttribute('data-price'));
-            console.log(name);
-            cart.push({ name, price });
-            updateCart();
-            console.log(3);
-
-            function updateCart() {
-                cartList.innerHTML = '';
-                let total = 0;
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.className = 'list-group-item';
-                    listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
-                    cartList.appendChild(listItem);
-
-                    total += item.price;
-                    console.log(2);
-                });
-
-                totalSpan.textContent = total.toFixed(2);
-                //cartList.textContent = total.toFixed(2);
-            }
-        });
-    </script>
+    
 </body>
 
 </html>
