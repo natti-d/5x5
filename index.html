@@ -35,7 +35,8 @@
                     onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
                 <button class="btn btn-success mx-5 my-2 btn-lg break-word"
                     style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cart"
-                    onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close">
+                    onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     <i class="bi bi-cart"></i>
                 </button>
 
@@ -67,7 +68,7 @@
                 onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word"
                 style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cartNav"
-                onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close">
+                onclick="changeCart()">
                 <i class="bi bi-cart"></i>
             </button>
         </div>
@@ -78,6 +79,29 @@
         data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Количка</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-4">
+                        <h2>Shopping Cart</h2>
+                        <ul id="cart" class="list-group">
+                            <!-- Cart items will be displayed here -->
+                        </ul>
+                        <p>Total: <span id="total">0.00</span></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!--OFFCANVA INFO-->
     <div class="vh-100 offcanvas offcanvas-bottom text-center d-block" tabindex="-1" id="offcanvasBottom"
         aria-labelledby="offcanvasBottomLabel" style="background-color: #CEEAF6; overflow-y: scroll;">
@@ -121,7 +145,8 @@
                             <button class="btn btn-outline-light font-weight-bold fs-4 my-3"
                                 style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
                                 onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
-                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
+                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';"
+                                data-price="0" id="purchase_btn">
                                 Поръчай
                             </button>
                             <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
@@ -182,6 +207,43 @@
             </div>
         </div>
     </footer>
+    <script>
+        let btn = document.getElementById('purchase_btn');
+        let cart = [];
+        btn.addEventListener('click', function () {
+
+            event.preventDefault();
+
+            const cartList = document.getElementById('total');
+            const totalSpan = document.getElementById('cart');
+
+            console.log(1);
+            const name = btn.getAttribute('item-name');
+            const price = parseFloat(this.getAttribute('data-price'));
+            console.log(name);
+            cart.push({ name, price });
+            updateCart();
+            console.log(3);
+
+            function updateCart() {
+                cartList.innerHTML = '';
+                let total = 0;
+
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
+                    cartList.appendChild(listItem);
+
+                    total += item.price;
+                    console.log(2);
+                });
+
+                totalSpan.textContent = total.toFixed(2);
+                //cartList.textContent = total.toFixed(2);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -382,6 +382,7 @@ function openOffCanva() {
     image_of_offcanva.src = products[object_id].image;
     price_btn.innerText = products[object_id].price.concat(" лв.");
     quantity_btn.innerText = products[object_id].quantity;
+    purchase.setAttribute("item-name", products[object_id].name);
     purchase.setAttribute("data-price", products[object_id].price);
     purchase.classList.add("addToCart");
 
