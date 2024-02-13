@@ -106,7 +106,7 @@ body{
 .search-banner-text{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 600px;
     margin-left: 70px;
     position: relative;
 }
@@ -522,6 +522,7 @@ footer{
     font-size: 0.9rem;
     letter-spacing: 1px;
     transition: all ease 0.3s;
+    text-decoration: none;
 }
 .footer-links li a:hover{
     opacity: 1;

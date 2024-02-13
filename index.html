@@ -10,6 +10,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
         integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
         crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
@@ -17,7 +25,7 @@
     <script src="script.js"></script>
 </head>
 
-<body class="m-0" style="background-color: #FAF0FF; min-height: 100vh;" onload="load()">
+<body class="m-0" style="background-color: #FAF0FF; min-height: 100vh;" onload="changeZanas()">
 
     <!--HEADER-->
     <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
@@ -34,8 +42,8 @@
                     style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="about"
                     onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
                 <button class="btn btn-success mx-5 my-2 btn-lg break-word"
-                    style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cart"
-                    onclick="changeCart()" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal"
+                    style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cart" onclick=""
+                    data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop">
                     <i class="bi bi-cart"></i>
                 </button>
@@ -67,19 +75,204 @@
                 style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="aboutNav"
                 onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">За Нас</button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word"
-                style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cartNav"
-                onclick="changeCart()">
+                style="background-color: #72CB7D; color: #1E4847; border: none;" type="button" id="cartNav" onclick=""
+                data-bs-dismiss="offcanvas" aria-label="Close" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i class="bi bi-cart"></i>
             </button>
         </div>
     </div>
 
-    <!--ОБЕКТИ-->
-    <div class="row m-4 d-flex position-relative pb-5" id="objects-div" onclick="openOffCanva()"
-        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+    <!--Магазин-->
+    <div class="d-none" id="shop-div">
+        <div class="row m-4 d-flex position-relative pb-5" id="objects-div" onclick="openOffCanva()"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+        </div>
+
+        <!--OFFCANVA INFO-->
+        <div class="vh-100 offcanvas offcanvas-bottom text-center d-block" tabindex="-1" id="offcanvasBottom"
+            aria-labelledby="offcanvasBottomLabel" style="background-color: #CEEAF6; overflow-y: scroll;">
+            <div class="d-flex flex-column m-3">
+                <div class="text-end">
+                    <button type="button" class="btn-close p-3" data-bs-dismiss="offcanvas" aria-label="Close">
+                    </button>
+                </div>
+                <form action="" class="text-start w-100">
+                    <fieldset class="p-2 w-100 d-md-flex d-block position-relative" style="border: solid 2px #1E4847;">
+                        <legend class="fs-1 fw-bold float-none px-3" style="color: #1E4847;" id="name-of-offcanva">
+                        </legend>
+                        <div class="col-md-6 mx-2">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="p-3">
+                                    <img class="img-fluid" src="" id="image-of-offcanva" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-block justify-content-around w-100 w-md-auto mx-md-3 mb-md-3" id="info-conatiner">
+                            <div class="accordion" id="accordionPanelsStayOpenExample"
+                                style="border: solid 2px #fff; border-radius: 2%;">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapseOne"
+                                            style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
+                                            Информация
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                        style="background-color: #D4ECDD;">
+                                        <div class="accordion-body fs-6" id="info-object">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex col-10 justify-content-around w-100">
+                                <button class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                    style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                    onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                    onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';"
+                                    data-price="0" id="purchase_btn" data-bs-dismiss="offcanvas" aria-label="Close"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Поръчай
+                                </button>
+                                <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                    style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                    id="price-btn"
+                                    onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                    onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
+                                </span>
+                                <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
+                                    style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
+                                    id="quantity-btn"
+                                    onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
+                                    onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
+                                </span>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- Modal -->
+    <!--За Нас-->
+    <div id="about-div" class="">
+
+        <section id="search-banner">
+            <img src="image1/bg.png" class="bg-1" alt="bg">
+            <img src="image1/bg-1.png" class="bg-2" alt="bg-2">
+
+
+            <div class="search-banner-text p-5 rounded"  style="background-color: #ffffffc2">
+                <h1>Поръчайте ежедневните си здравословни стоки</h1>
+                <strong class="mb-2">#Безплатна поръчка</strong>
+                <p class="fs-5">Добре дошли в 5х5, вашият онлайн магазин за органични и здравословни продукти. Предлагаме разнообразие от видове храни
+                за всеки вкус и всяка възраст. Разбработили сме магазина ни да е изключително удобен и лесен, за ползване за да е
+                достъпен до колкото се може повече хора.</p>
+                <!--search-box------>
+
+            </div>
+        </section>
+
+        <section id="category">
+
+            <div class="category-heading">
+                <h2>Марки</h2>
+                <u style="color: #4d4d4d;" onmouseover="this.style.color = '#000000';"
+                    onmouseleave="this.style.color = '#4d4d4d';" onclick="changeMagazin()">Всички</u>
+            </div>
+            <!--box-container---------->
+            <div class="category-container" id="category-cont">
+            </div>
+
+        </section>
+        <!--category-end----------------------------------->
+        <!--==Clients===============================================-->
+        <section id="clients">
+            <!--heading---------------->
+            <div class="client-heading">
+                <h3>Какво казват нашите клиенти</h3>
+            </div>
+            <!--box-container---------->
+            <div class="client-box-container">
+                <!--box------------->
+                <div class="client-box">
+                    <!--==profile===-->
+                    <div class="client-profile">
+                        <!--img--->
+                        <img alt="client" src="image1/client-1.jpg">
+                        <!--text-->
+                        <div class="profile-text">
+                            <strong>Симеон Арамански</strong>
+                            <span>Изпълнителен Директор</span>
+                        </div>
+                    </div>
+                    <!--==Rating======-->
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!--==comments===-->
+                    <p>Много съм доволен от самото обслужване, стоката и качествената доставка. Силно препоръчвам, има голямо разнообразие!</p>
+                </div>
+                <!--box------------->
+                <div class="client-box">
+                    <!--==profile===-->
+                    <div class="client-profile">
+                        <!--img--->
+                        <img alt="client" src="image1/client-2.jpg">
+                        <!--text-->
+                        <div class="profile-text">
+                            <strong>Гео Илиев</strong>
+                            <span>Разработчик на Софтуер</span>
+                        </div>
+                    </div>
+                    <!--==Rating======-->
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!--==comments===-->
+                    <p>Едно по-различно и интересно място за пазаруване, продуктите също са много добри цени. 5 звезди!</p>
+                </div>
+                <!--box------------->
+                <div class="client-box">
+                    <!--==profile===-->
+                    <div class="client-profile">
+                        <!--img--->
+                        <img alt="client" src="image1/client-3.jpg">
+                        <!--text-->
+                        <div class="profile-text">
+                            <strong>Малина Хаджидимитрова</strong>
+                            <span>Маркетолог</span>
+                        </div>
+                    </div>
+                    <!--==Rating======-->
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!--==comments===-->
+                    <p>Много иновативно място с разнобразие и прозрачност на хранителните съставки. Благодаря за качеството!</p>
+                </div>
+            </div>
+        </section>
+        <!--client-section-end---------->
+        <!--==Partnre-logo================================-->
+    </div>
+
+    <!-- Количка -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -90,11 +283,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="container mt-4">
-                        <h2>Shopping Cart</h2>
+                        <h2>Количка</h2>
                         <ul id="cart" class="list-group">
                             <!-- Cart items will be displayed here -->
                         </ul>
-                        <p>Total: <span id="total">0.00</span></p>
+                        <p>Всикчко: <span id="total">0.00</span></p>
                     </div>
 
                 </div>
@@ -102,72 +295,7 @@
             </div>
         </div>
     </div>
-    <!--OFFCANVA INFO-->
-    <div class="vh-100 offcanvas offcanvas-bottom text-center d-block" tabindex="-1" id="offcanvasBottom"
-        aria-labelledby="offcanvasBottomLabel" style="background-color: #CEEAF6; overflow-y: scroll;">
-        <div class="d-flex flex-column m-3">
-            <div class="text-end">
-                <button type="button" class="btn-close p-3" data-bs-dismiss="offcanvas" aria-label="Close">
-                </button>
-            </div>
-            <form action="" class="text-start w-100">
-                <fieldset class="p-2 w-100 d-md-flex d-block position-relative" style="border: solid 2px #1E4847;">
-                    <legend class="fs-1 fw-bold float-none px-3" style="color: #1E4847;" id="name-of-offcanva">
-                    </legend>
-                    <div class="col-md-6 mx-2">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <div class="p-3">
-                                <img class="img-fluid" src="" id="image-of-offcanva" alt="">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="d-block justify-content-around w-100 w-md-auto mx-md-3 mb-md-3" id="info-conatiner">
-                        <div class="accordion" id="accordionPanelsStayOpenExample"
-                            style="border: solid 2px #fff; border-radius: 2%;">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne"
-                                        style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
-                                        Информация
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                    style="background-color: #D4ECDD;">
-                                    <div class="accordion-body fs-6" id="info-object">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex col-10 justify-content-around w-100">
-                            <button class="btn btn-outline-light font-weight-bold fs-4 my-3"
-                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
-                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
-                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';"
-                                data-price="0" id="purchase_btn">
-                                Поръчай
-                            </button>
-                            <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
-                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
-                                id="price-btn"
-                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
-                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
-                            </span>
-                            <span class="btn btn-outline-light font-weight-bold fs-4 my-3"
-                                style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
-                                id="quantity-btn"
-                                onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
-                                onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';">
-                            </span>
-                        </div>
-
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
 
 
     <!--==Footer=============================================-->
@@ -175,72 +303,89 @@
         <div class="footer-container">
             <!--logo-container------>
             <div class="footer-logo">
-                <a href="#" class="logo">
+                <a href="" class="logo">
                     <img src="image1/image.png">
 
                 </a>
                 <!--social----->
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="./image1/503-status-code.png" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="./image1/503-status-code.png" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="./image1/503-status-code.png" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="./image1/503-status-code.png" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <!--links------------------------->
             <div class="footer-links">
-                <strong>Category</strong>
-                <ul>
-                    <li><a href="#">Beauty</a></li>
-                    <li><a href="#">Meats</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Clothes</a></li>
+                <strong>Марки</strong>
+                <ul class="list-unstyled">
+                    <li><a onclick="footerBrand('Smart Organic');" style="color: #ffffff;">Smart Organic</a></li>
+                    <li><a onclick="footerBrand('Snack Day');" style="color: #ffffff;">Snack Day</a></li>
+                    <li><a onclick="footerBrand('Turtle');" style="color: #ffffff;">Turtle</a></li>
                 </ul>
             </div>
             <!--links-------------------------->
             <div class="footer-links">
-                <strong>Contact</strong>
-                <ul>
-                    <li><a href="#">Phone : +123456789</a></li>
-                    <li><a href="#">Email : Example@gmail.com</a></li>
+                <strong>Контакти</strong>
+                <ul class="list-unstyled">
+                    <li><a href="./image1/503-status-code.png" target="_blank">Phone : +123456789</a></li>
+                    <li><a href="./image1/503-status-code.png" target="_blank">Email : example@email.com</a></li>
                 </ul>
             </div>
         </div>
     </footer>
     <script>
+        //Взима се бутона за поръчки
         let btn = document.getElementById('purchase_btn');
+        //Прави се масив за нещата в количката
         let cart = [];
-        btn.addEventListener('click', function () {
 
+        //"Слува" се за кликане за поръчка
+        btn.addEventListener('click', function () {
+            //Предотвратява се refresh-а на сайта
             event.preventDefault();
 
             const cartList = document.getElementById('total');
             const totalSpan = document.getElementById('cart');
 
-            console.log(1);
+            //Взима се името на продукта чрез атрибут за име
             const name = btn.getAttribute('item-name');
-            const price = parseFloat(this.getAttribute('data-price'));
-            console.log(name);
-            cart.push({ name, price });
-            updateCart();
-            console.log(3);
 
+            //Взима се цената на продукта чрез атрибут за цена
+            const price = parseFloat(this.getAttribute('data-price'));
+            //let count = 0; //да отброява колко еднакви продукти има в количката
+            
+            //Добавят се името и цената в масива
+            cart.push({ name, price});
+            updateCart();
+            
+            //Функция за изписване в количката
             function updateCart() {
+                //Изчиства се първоначалния контейнер, в случай че има кешира данни от предишен път
                 cartList.innerHTML = '';
+                //Дефинира се променлива за крайна цена
                 let total = 0;
 
-                cart.forEach(item => {
+                //Разглежда се всеки елемент от масива
+                cart.forEach(item => {                    
+                    //Добавя се цената на продукта към крайната цена и се изписва "Общо"-то
+                    total += item.price;
+                    document.getElementById('total').innerHTML = " " + total.toFixed(2) + " лв.";
+
+
+                    //Генерира се елемент за изброяване
                     const listItem = document.createElement('li');
-                    listItem.className = 'list-group-item';
+                    //Прави се responsive
+                    listItem.classList.add('list-group-item');
+                    //Изписват се името и цената
                     listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
+                    //ИНформацията се внедрява в контейнера за количката
                     cartList.appendChild(listItem);
 
-                    total += item.price;
-                    console.log(2);
                 });
 
-                totalSpan.textContent = total.toFixed(2);
-                //cartList.textContent = total.toFixed(2);
+                //Изписва се крайната цена в бутона за количката
+                totalSpan.innerHTML = '<i class="bi bi-cart"></i> ' + total.toFixed(2);
             }
         });
     </script>
