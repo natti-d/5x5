@@ -420,3 +420,23 @@ function footerBrand(bran) {
     //Отваря се магазина и се сменят бутоните
     changeMagazin();
 }
+
+function updateCart() {
+    const cartList = document.getElementById('total');
+    const totalSpan = document.getElementById('cart');
+    cartList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item';
+        listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
+        cartList.appendChild(listItem);
+
+        total += item.price;
+        console.log(2);
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+    //cartList.textContent = total.toFixed(2);
+}
