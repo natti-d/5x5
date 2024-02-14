@@ -373,9 +373,9 @@
 
                 //Разглежда се всеки елемент от масива
                 cart.forEach(item => {
-                    //Добавя се цената на продукта към крайната цена и се изписва "Общо"-то
+                    //Добавя се цената на продукта към крайната цена, НО ВСЕ ОЩЕ НЕ се изписва "Общо"-то
                     total += item.price;
-                    document.getElementById('total').innerHTML = " " + total.toFixed(2) + " лв.";
+                    //document.getElementById('total').innerHTML += " " + total.toFixed(2) + " лв.";
 
 
                     //Генерира се елемент за изброяване
@@ -383,7 +383,7 @@
                     //Прави се responsive
                     listItem.classList.add('list-group-item');
                     //Изписват се името и цената
-                    listItem.textContent = `${item.name} - ${item.price.toFixed(2)} лв`;
+                    listItem.textContent += `${item.name} - ${item.price.toFixed(2)} лв`;
                     //ИНформацията се внедрява в контейнера за количката
                     cartList.appendChild(listItem);
 
